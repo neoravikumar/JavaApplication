@@ -1,4 +1,4 @@
-package com.intermediate.basic;
+package com.intermediate.bitWise;
 
 import java.util.ArrayList;
 import java.util.List;
