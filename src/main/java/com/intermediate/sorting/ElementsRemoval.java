@@ -45,36 +45,60 @@ Output 1:
  4
 Output 2:
 
- 5*/
+ 5
+ Example Output
+Output 1:
+
+ 4
+Output 2:
+
+ 5
+
+
+Example Explanation
+Explanation 1:
+
+ Given array A = [2, 1]
+ Remove 2 from the array => [1]. Cost of this operation is (2 + 1) = 3.
+ Remove 1 from the array => []. Cost of this operation is (1) = 1.
+ So, total cost is = 3 + 1 = 4.
+ 
+Explanation 2:
+
+ There is only one element in the array. So, cost of removing is 5.
+ */
 public class ElementsRemoval {
 
 	public int solve(ArrayList<Integer> A) {
 		int N = null != A ? A.size() : 0;
 		Long result = new Long(0L);
-		int lElement = 0;
 
 		if (N >= 1 && N <= 1000) {
-			Collections.sort(A,Collections.reverseOrder());
-			
-			
-			for (int a : A) {
-				if (a >= 1 && a <= Math.pow(10, 3)) {
-					result 
-				}
+
+			Collections.sort(A, Collections.reverseOrder());
+
+			for (int i = 0; i < N; i++) {
+				int valueAtIndex = A.get(i);
+				result = getSum(A, valueAtIndex, i + 1, result);
 			}
-			if(N>1) {
-				if()
-				lElement = A.get(N-1);
-				result += lElement;
-			}
+
 		}
 		return result.intValue();
+	}
+
+	private long getSum(ArrayList<Integer> A, int value, int index, Long result) {
+
+		for (int i = index; i < A.size(); i++) {
+			result += A.get(i);
+		}
+
+		return result + value;
 	}
 
 	public static void main(String[] args) {
 
 		ElementsRemoval elementsRemoval = new ElementsRemoval();
-		List<Integer> lst = Arrays.asList(8, 0, 10 );
+		List<Integer> lst = Arrays.asList(0,8,10);
 		// List<Integer> lst = Arrays.asList(-4, -2, 0, -1, -6 );
 
 		ArrayList<Integer> abc = new ArrayList<Integer>();
