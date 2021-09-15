@@ -64,9 +64,9 @@ public class Isalnum {
 	private int isAlphaNumeric(ArrayList<Character> A) {
 		HashSet<Integer> myalphaNumericSet = new HashSet<Integer>();
 
-		for (int i = 65, j = 97, l = 45; i <= 90; i++, j++) {
+		for (int i = 65, j = 97, k = 48; i <= 90; i++, j++) {
 			if (i < 75) {
-				myalphaNumericSet.add(l++);
+				myalphaNumericSet.add(k++);
 			}
 			myalphaNumericSet.add(i);
 			myalphaNumericSet.add(j);
@@ -76,9 +76,9 @@ public class Isalnum {
 		int N = null != A ? A.size() : 0;
 		for (int start = 0, end = N - 1; start < end; start++, end--) {
 			int mystartInt = A.get(start);
+			//System.out.println(A.get(start));
 			int endInt = A.get(end);
-			char ac= (char) endInt;
-			System.out.println(ac);
+			//System.out.println(A.get(end));
 			if (!(myalphaNumericSet.contains(mystartInt)) || !(myalphaNumericSet.contains(endInt))) {
 				return 0;
 			}
