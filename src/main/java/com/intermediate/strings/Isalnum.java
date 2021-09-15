@@ -76,9 +76,7 @@ public class Isalnum {
 		int N = null != A ? A.size() : 0;
 		for (int start = 0, end = N - 1; start < end; start++, end--) {
 			int mystartInt = A.get(start);
-			//System.out.println(A.get(start));
 			int endInt = A.get(end);
-			//System.out.println(A.get(end));
 			if (!(myalphaNumericSet.contains(mystartInt)) || !(myalphaNumericSet.contains(endInt))) {
 				return 0;
 			}
