@@ -46,7 +46,6 @@ public class SmallerAndGreater {
 			for (int k = 0; k < A.size(); k++) {
 				int value = (Integer) A.get(k);
 				count = minMaxCount(A, count, value);
-				A.
 			}
 		}
 		return count;

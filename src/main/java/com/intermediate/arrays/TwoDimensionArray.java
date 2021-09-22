@@ -23,10 +23,6 @@ public class TwoDimensionArray {
 		}
 		
 		System.out.println(Arrays.deepToString(A));
-		
-		Arrays.
-		
-
 		return B;
 	}
 

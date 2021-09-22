@@ -81,7 +81,7 @@ public class CommonElements {
 
 			for (Integer a : A) {
 				if (map.containsKey(a)) {
-					map.get(a)
+					map.get(a);
 				}
 				map.put(a, a);
 			}
