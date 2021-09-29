@@ -74,15 +74,15 @@ public class MaximumDifference {
 
 	public static void main(String[] args) {
 
-		//List<Integer> integers = Arrays.asList(1, 2, 3, 4, 5);
+		List<Integer> integers = Arrays.asList(1, 2, 3, 4, 5);
 		//List<Integer> integers = Arrays.asList(5, 17, 100, 11);
-		List<Integer> integers = Arrays.asList(93, 51, 84, 81, 89, 82, 28, 78, 86,35, 64, 38, 49, 99, 83);
+		//List<Integer> integers = Arrays.asList(93, 51, 84, 81, 89, 82, 28, 78, 86,35, 64, 38, 49, 99, 83);
 
 		ArrayList<Integer> inputArray = new ArrayList<Integer>();
 		inputArray.addAll(integers);
 
 		MaximumDifference eq = new MaximumDifference();
-		int result = eq.solve(inputArray, 4);
+		int result = eq.solve(inputArray,2);
 		System.out.println("Result:>>" + result);
 
 	}

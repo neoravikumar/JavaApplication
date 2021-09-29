@@ -52,16 +52,23 @@ public class ChangeCharacter {
 
 		int N = null != A ? A.length() : 0;
 		int result = 0;
+		StringBuilder sb = new StringBuilder(A);
 		if (N >= 1 && N <= 100000) {
 			if (B >= 0 && B < N) {
-				char[] input = A.toCharArray();
-				
+
+				sb.toString().replaceAll("d", "a");
+				System.out.println(sb);
 			}
 		}
 		return B;
 	}
 
 	public static void main(String[] args) {
+
+		ChangeCharacter chnc = new ChangeCharacter();
+		int result = chnc.solve("abcabbccd", 3);
+		
+		System.out.println("Total No of Character is :>>"+result);
 
 	}
 
