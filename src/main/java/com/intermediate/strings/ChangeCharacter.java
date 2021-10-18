@@ -1,5 +1,11 @@
 package com.intermediate.strings;
 
+import java.util.HashMap;
+import java.util.LinkedHashMap;
+import java.util.Map;
+import java.util.Map.Entry;
+import java.util.stream.Collectors;
+
 /*
  Change character
 Problem Description
@@ -51,24 +57,51 @@ public class ChangeCharacter {
 	public int solve(String A, int B) {
 
 		int N = null != A ? A.length() : 0;
-		int result = 0;
+
+		HashMap<Character, Integer> charCount = new LinkedHashMap<Character, Integer>();
+
 		StringBuilder sb = new StringBuilder(A);
+
 		if (N >= 1 && N <= 100000) {
 			if (B >= 0 && B < N) {
+				charCount.put(sb.charAt(0), 0);
+				for (int i = 0; i < sb.length(); i++) {
+					if (charCount.containsKey(sb.charAt(i))) {
+						int value = charCount.get(sb.charAt(i));
+						charCount.put(sb.charAt(i), ++value);
+					} else {
+						charCount.put(sb.charAt(i), 1);
+					}
 
-				sb.toString().replaceAll("d", "a");
-				System.out.println(sb);
+				}
+
 			}
 		}
-		return B;
+		Map<Character, Integer> sortByValueMap = charCount.entrySet().stream().sorted(Entry.comparingByValue())
+				.collect(Collectors.toMap(entry -> entry.getKey(), entry -> entry.getValue(),
+						(entry1, entry2) -> entry2, LinkedHashMap::new));
+
+		for (int k = 0; k < B; k++) {
+			Map.Entry<Character, Integer> entry = sortByValueMap.entrySet().iterator().next();
+			Character key = entry.getKey();
+
+			Integer value = entry.getValue();
+			if (value == 1) {
+				sortByValueMap.remove(key, value);
+			} else {
+				value = value - 1;
+				sortByValueMap.replace(key, value);
+			}
+		}
+		return sortByValueMap.size();
 	}
 
 	public static void main(String[] args) {
 
 		ChangeCharacter chnc = new ChangeCharacter();
 		int result = chnc.solve("abcabbccd", 3);
-		
-		System.out.println("Total No of Character is :>>"+result);
+
+		System.out.println("Total No of Character is :>>" + result);
 
 	}
 

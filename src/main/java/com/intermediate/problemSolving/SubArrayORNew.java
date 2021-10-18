@@ -75,58 +75,31 @@ Explanation 2:
  Sum of value of all subarray is 110.
 
  */
-public class SubArrayOR {
+public class SubArrayORNew {
 
 	public int solve(ArrayList<Integer> A) {
-
 		int N = A.size();
-		long sum = 0l;
 		long MOD = new Double(Math.pow(10, 9) + 7).longValue();
-
-		long power = 1l;
-		long ans = 0l;
+		long ans = 0;
+		int[] idx = new int[50];
 
 		if (N >= 1 && N <= Math.pow(10, 5)) {
-			// Brute force approach
-			/*
-			 * for (int i = 0; i < N; i++) { if (A.get(i) >= 1 && A.get(i) <= Math.pow(10,
-			 * 9)) { for (int k = i; k <= N; k++) { List<Integer> subArray = A.subList(i,
-			 * k); System.out.println(subArray); if (subArray != null && subArray.size() >=
-			 * 1) { long or = subArray.get(0); // Calculate the sum or bitwise or for (int l
-			 * = 0; l < subArray.size(); l++) { or = or | subArray.get(l); } sum = (or +
-			 * sum) % MOD; } } } }
-			 */
-
-			// Another approach
-			for (long i = 0; i < 32; i++) {
-				long zeroCount = 0L;
-				long consZeros = 0L;
-				for (int j = 0; j < N; j++) {
-					if (A.get(j) >= 1 && A.get(j) <= Math.pow(10, 8)) {
-						if ((A.get(j) & (1 << i)) == (1 << i)) {
-							zeroCount += (consZeros * (consZeros + 1)) / 2;
-							consZeros = 0;
-						} else {
-							consZeros++;
-						}
+			for (int i = 1; i <= N; ++i) {
+				long tmp = A.get(i - 1);
+				for (int j = 0; j <= 31; ++j) {
+					long pw = 1l << j;
+					if ((tmp & pw) > 0) {
+						ans += pw * i;
+						idx[j] = i;
+					} else if (idx[j] > 0) {
+						ans += pw * idx[j];
 					}
 				}
-				zeroCount += (consZeros * (consZeros + 1)) / 2;
-				long totalOnes = (N * (N + 1)) / 2;
-				long oneCount = totalOnes - zeroCount;
-				
-				
-				// ans = (ans%MOD + ((numberOfSubA - numberOfSubTemp)%MOD * (1<<i)%MOD)%MOD)%MOD;
-				
-				if (i != 0) {
-					power = power * 2;
-				}
-				long value = (oneCount * power) % MOD;
-				ans = (ans+ value) % MOD;
-				ans %= MOD;
 			}
+
 		}
-		return new Long(ans).intValue();
+		return (int) (ans % MOD);
+
 	}
 
 	public static void main(String[] args) {
@@ -144,7 +117,7 @@ public class SubArrayOR {
 		ArrayList<Integer> inputArray = new ArrayList<Integer>();
 		inputArray.addAll(integers);
 
-		SubArrayOR eq = new SubArrayOR();
+		SubArrayORNew eq = new SubArrayORNew();
 		int result = eq.solve(inputArray);
 		System.out.println("Result:>>" + result);
 

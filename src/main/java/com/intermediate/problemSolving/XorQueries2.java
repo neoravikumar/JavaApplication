@@ -3,6 +3,7 @@ package com.intermediate.problemSolving;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Objects;
 
 /*
  Xor queries
@@ -45,44 +46,66 @@ In the given case the bit sequence is of length 5 and the sequence is 1 0 0 0 1.
 For query 1 the range is (2,4), and the answer is (array[2] xor array[3] xor array[4]) = 0, and number of zeroes are 3, so output is 0 3. 
 Similarly for other queries.
  */
-public class XorQueries {
+public class XorQueries2 {
 
 	public ArrayList<ArrayList<Integer>> solve(ArrayList<Integer> A, ArrayList<ArrayList<Integer>> B) {
+
 		ArrayList<ArrayList<Integer>> resultList = new ArrayList<ArrayList<Integer>>();
-		ArrayList<Integer> zeroPrefixSum = new ArrayList<Integer>();
-		zeroPrefixSum = prefixSum(0, A, zeroPrefixSum);
+
+		ArrayList<Integer> xorArray = new ArrayList<Integer>();
+		ArrayList<Integer> zeroPrefixSumArray = new ArrayList<Integer>();
+		
+
+		xorArray.add(A.get(0));
+		int zeroCounter = 0;
+		int first = A.get(0)== zeroCounter?++zeroCounter:0;
+		zeroPrefixSumArray.add(first);
+		
+		// Prefix Zero Sum Array
+        for(int i=1;i<A.size();i++){
+        	if(A.get(i)==0) {
+        		zeroPrefixSumArray.add( zeroPrefixSumArray.get(i-1) +  1);
+        	}else {
+        		zeroPrefixSumArray.add(zeroPrefixSumArray.get(i-1));
+        	}
+        }
+        
+		/*
+		 * int xor = 0; for(int i=0;i<A.size();i++) { for(int j=i;j<A.size();j++) {
+		 * if(null != A.subList(i, j) && A.subList(i, j).size()>0) { List<Integer>
+		 * subArray = A.subList(i, j); int start =0, end =0;
+		 * if(Objects.nonNull(subArray) && subArray.size()>1) { start = subArray.get(0);
+		 * end = subArray.get(1); } else { start = subArray.get(0); end =
+		 * subArray.get(0); }
+		 * 
+		 * System.out.println("start and end index>>"+start+"::"+end);
+		 * if(zeroPrefixSumArray.get(end) - zeroPrefixSumArray.get(start-1) !=0) { xor
+		 * += 1; } } System.out.println("xor Value:>>"+xor);
+		 * 
+		 * } }
+		 */
+        int xor = 0;
 
 		for (int i = 0; i < B.size(); i++) {
-			int l = B.get(i).get(0) - 1;
-			int r = B.get(i).get(1) - 1;
-			int noOfZero = 0;
-
-			if (l != 0) {
-				noOfZero = zeroPrefixSum.get(r) - zeroPrefixSum.get(l - 1);
-			} else {
-				noOfZero = zeroPrefixSum.get(r);
+			ArrayList<Integer> temp = B.get(i);
+			int start = temp.get(0)-1;
+			int end  = temp.get(1)-1;
+			System.out.println("start and end index>>"+start+"::"+end);
+			if(start !=0) {
+				if (zeroPrefixSumArray.get(end) - zeroPrefixSumArray.get(start - 1) != 0) {
+					xor = 1;
+				}
+				else {
+					xor = 0;
+				}
 			}
-			int noOfOne = (r - l + 1) - noOfZero;
-			int xor = noOfOne % 2 == 0 ? 0 : 1;
-			ArrayList<Integer> r1 = new ArrayList<Integer>();
-			r1.add(xor);
-			r1.add(noOfZero);
-			resultList.add(r1);
+			
+			System.out.println("xor Value:>>" + xor);
 		}
+
 		return resultList;
 	}
 
-	private ArrayList<Integer> prefixSum(int n, ArrayList<Integer> A, ArrayList<Integer> resultArray) {
-		int counter = 0;
-		for (int i = 0; i < A.size(); i++) {
-			if (A.get(i) == n) {
-				resultArray.add(++counter);
-			} else {
-				resultArray.add(counter);
-			}
-		}
-		return resultArray;
-	}
 
 	public static void main(String[] args) {
 		List<Integer> integers = Arrays.asList(1, 0, 0, 0, 1);
@@ -110,7 +133,7 @@ public class XorQueries {
 
 		ArrayList<ArrayList<Integer>> result = new ArrayList<ArrayList<Integer>>();
 
-		XorQueries eq = new XorQueries();
+		XorQueries2 eq = new XorQueries2();
 		result = eq.solve(inputArray, blist);
 		System.out.println("Result:>>" + result);
 

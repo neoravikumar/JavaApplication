@@ -3,6 +3,9 @@
  */
 package com.intermediate.arrays;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+
 /**
  * @author rachoudhary
  *
@@ -41,21 +44,21 @@ package com.intermediate.arrays;
  * 
  * Example Explanation A[1][2]= 2 1*1009 + 2 =1011
  */
-public class SearchInArowWiseAndColumn {
+public class SearchInArowWiseAndColumn2 {
 
-	public int solve(int[][] A, int B) {
+	public int solve(ArrayList<ArrayList<Integer>> A, int B) {
 
 		int result = -1;
 		// Row Wise Traverse
-		int N = null != A ? A.length: 0;
-		int M = null != A ? A[0].length: 0;
-		
-		if(N>=1 && N <= 1000 && M>=1 && M <= 1000) {
+		int N = null != A ? A.size() : 0;
+		int M = null != A ? A.get(0).size() : 0;
+
+		if (N >= 1 && N <= 1000 && M >= 1 && M <= 1000) {
 			boolean isExecute = true;
-			for (int i = 0; ( i < A.length && isExecute ); i++) {
-				for (int j = 0; j < A[0].length; j++) {
-					if(A[i][j] == B) {
-						result = (i+1) * 1009 + (j+1);
+			for (int i = 0; (i < A.size() && isExecute); i++) {
+				for (int j = 0; j < A.get(i).size(); j++) {
+					if (A.get(i).get(j) == B) {
+						result = (i + 1) * 1009 + (j + 1);
 						isExecute = false;
 						break;
 					}
@@ -63,7 +66,7 @@ public class SearchInArowWiseAndColumn {
 			}
 		}
 		return result;
-    }
+	}
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
@@ -144,14 +147,24 @@ public class SearchInArowWiseAndColumn {
 		 * 171, 174, 179, 181, 183 } };
 		 */
 
-			//int[][] arr2 = { {1, 3, 5, 7},{2, 4, 6, 8} };
-			int[][] arr3 = { {1, 2,3},{4, 5,6},{7, 8,9} };
+		// int[][] arr2 = { {1, 3, 5, 7},{2, 4, 6, 8} };
+		int[][] arr3 = { { 1, 2, 3 }, { 4, 5, 6 }, { 7, 8, 9 } };
+		
+		ArrayList<Integer> a1 = new ArrayList<Integer>(Arrays.asList(1, 2, 3));
+		ArrayList<Integer> a2 = new ArrayList<Integer>(Arrays.asList(4, 5, 6));
+		ArrayList<Integer> a3 = new ArrayList<Integer>(Arrays.asList(7, 8, 9 ));
 
-		SearchInArowWiseAndColumn searchInArowWiseAndColumn = new SearchInArowWiseAndColumn();
+		ArrayList<ArrayList<Integer>> blist = new ArrayList<ArrayList<Integer>>();
+		blist.add(a1);
+		blist.add(a2);
+		blist.add(a3);
+		
 
-		//int result = searchInArowWiseAndColumn.solve(arr, 91);
-		//int result = searchInArowWiseAndColumn.solve(arr2, 10);
-		int result = searchInArowWiseAndColumn.solve(arr3, 1);
+		SearchInArowWiseAndColumn2 searchInArowWiseAndColumn = new SearchInArowWiseAndColumn2();
+
+		// int result = searchInArowWiseAndColumn.solve(arr, 91);
+		// int result = searchInArowWiseAndColumn.solve(arr2, 10);
+		int result = searchInArowWiseAndColumn.solve(blist, 2);
 		System.out.println("Final REsult:>>" + result);
 
 	}

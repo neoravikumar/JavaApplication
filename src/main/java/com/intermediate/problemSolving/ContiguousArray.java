@@ -43,49 +43,43 @@ Output 2:
 public class ContiguousArray {
 
 	public int solve(ArrayList<Integer> A, int B) {
-		
-		int result = 0;
-		int answer = Integer.MAX_VALUE;
-		int min = 0;
-		int N = A.size();
-		int max = 0;
-		
-		Collections.sort(A);
-		
-		
-		
-		min = A.get(0);
-		max = A.get(N-1);
+		HashMap<Integer, Integer> map = new HashMap<Integer, Integer>();
+		int sum = 0;
+		// Initialize result
+		int max_len = 0;
+		int ending_index = -1;
+		int start_index = 0;
 
-		// frequency map with key as array Element value as it's no# of occurence.
-		HashMap<Integer, Integer> freq = new HashMap<Integer, Integer>();
 		for (int i = 0; i < A.size(); i++) {
-			if (!freq.containsKey(A.get(i))) {
-				freq.put(A.get(i), 1);
-			} else {
-				int value = freq.get(A.get(i)) + 1;
-				freq.put(A.get(i), value);
-			}
+			A.set(i, A.get(i)== 0? -1 : 1);
 		}
-		
-		while (B>0 && answer != 0) {
-			
-			if(freq.get(min) > freq.get(max)) {
-				//freq.get(max-1) += freq.get(max);
-				
+
+
+		for (int i = 0; i < A.size(); i++) {
+			sum += A.get(i);
+			if (sum == 0) {
+				max_len = i + 1;
+				ending_index = i;
 			}
-			
+			if (map.containsKey(sum)) {
+				if (max_len < i - map.get(sum)) {
+					max_len = i - map.get(sum);
+					ending_index = i;
+				}
+			} else 
+				map.put(sum, i);
 		}
-		
 
-		
+		for (int i = 0; i < A.size(); i++) {
+			A.set(i, A.get(i)== -1? 0 : 1);
+		}
 
-		return result;
+		return max_len;
 
 	}
 
 	public static void main(String[] args) {
-		List<Integer> input = Arrays.asList(2, 6, 3, 9, 8);
+		List<Integer> input = Arrays.asList(1, 0, 1, 0, 1);
 
 		ContiguousArray contiguousArray = new ContiguousArray();
 		int result = contiguousArray.solve(new ArrayList<Integer>(input), 3);
