@@ -22,6 +22,10 @@ public class Test {
 		// Creating object of ArrayList<Integer>
         ArrayList<String>
             arrlist = new ArrayList<String>();
+        
+        // declare array and fill with default value
+        Integer[] count = new Integer[1001];
+		Arrays.fill(count, 0);
 
         // Populating arrlist1
         arrlist.add("A");

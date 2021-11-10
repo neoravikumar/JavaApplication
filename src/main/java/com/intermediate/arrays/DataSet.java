@@ -2,6 +2,7 @@ package com.intermediate.arrays;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 public class DataSet {
@@ -12,8 +13,12 @@ public class DataSet {
 		// 561, 314, 25, 110 );
 		// List<Integer> lst = Arrays.asList(1,2,3 );
 		List<Integer> arrays = Arrays.asList(1, 2, 3, 4, 5);
-
-		ArrayList<Integer> myList = new ArrayList<Integer>();
+		ArrayList<Boolean> myList = new ArrayList<Boolean>();
 		myList.addAll(myList);
+		Boolean[] arr = new Boolean[5];
+		Arrays.fill(arr, false);
+		Collections.addAll(myList, arr);
+		System.out.println(myList);
+
 	}
 }

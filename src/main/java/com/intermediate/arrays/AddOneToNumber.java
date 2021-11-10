@@ -89,7 +89,7 @@ public class AddOneToNumber {
 			if (carry > 0) {
 				A.add(0, carry);
 			}
-			A.forEach(a -> System.out.print(a + " "));
+			//A.forEach(a -> System.out.print(a + " "));
 		}
 
 		return A;
