@@ -1,4 +1,4 @@
-package com.intermediate.arithmetic;
+package com.intermediate.arithmetic.primeNumber;
 
 /*
  Problem Description
