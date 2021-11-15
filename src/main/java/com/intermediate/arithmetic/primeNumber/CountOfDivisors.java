@@ -1,4 +1,4 @@
-package com.intermediate.arithmetic;
+package com.intermediate.arithmetic.primeNumber;
 
 import java.util.ArrayList;
 import java.util.Arrays;
