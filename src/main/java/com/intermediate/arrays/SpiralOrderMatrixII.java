@@ -1,6 +1,7 @@
 package com.intermediate.arrays;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 import javax.swing.Spring;
 
@@ -51,38 +52,36 @@ public class SpiralOrderMatrixII {
 
 		ArrayList<ArrayList<Integer>> result = new ArrayList<ArrayList<Integer>>();
 
-		int left = 0, right = A - 1, top = 0, bottom = A - 1, dir = 0, value = 1;
+		Integer[][] num = new Integer[A][A];
 
-		while (top <= bottom && left <= right) {
-
-			if (dir == 0) {
-				for (int i = left; i <= right; i++) {
-					System.out.println(left+":"+i+"\t"+value++);
-				}
-				top++;
+		int count = 1;
+		for (int i = 0; i < A; i++) {
+			for (int j = i; j < A - i; j++) {
+				num[i][j] = count;
+				count++;
 			}
-			else if(dir==1) {
-				for(int i=top;i<=bottom;i++) {
-					System.out.println(top+":"+i+"\t"+value++);
-				}
-				right--;
+			for (int k = i + 1; k < A - i - 1; k++) {
+				num[k][A - i - 1] = count;
+				count++;
 			}
-			else if(dir==2) {
-				for(int i = right;i>=left;i--) {
-					System.out.println(bottom+":"+i+"\t"+value++);
-				}
-				bottom--;
+			for (int l = A - i - 1; l > i; l--) {
+				num[A - i - 1][l] = count;
+				count++;
 			}
-			else if(dir==3) {
-				for(int i = bottom;i>= top ; i--) {
-					System.out.println(bottom+":"+i+"\t"+value++);
-				}
-				left++;
+			for (int m = A - 1 - i; m > i; m--) {
+				num[m][i] = count;
+				count++;
 			}
-			
-		dir = (dir +1 ) % 4 ;
 		}
 
+		for (Integer[] ints : num) {
+			ArrayList<Integer> integerArray = new ArrayList<>(ints.length);
+			for (int i : ints) {
+				integerArray.add(i);
+			}
+			result.add(integerArray);
+		}
+		display(result);
 		return result;
 	}
 
@@ -95,10 +94,8 @@ public class SpiralOrderMatrixII {
 	}
 
 	public static void main(String[] args) {
-
 		SpiralOrderMatrixII spiralOrderMatrixII = new SpiralOrderMatrixII();
-		spiralOrderMatrixII.generateMatrix(3);
-
+		spiralOrderMatrixII.generateMatrix(2);
 	}
 
 }

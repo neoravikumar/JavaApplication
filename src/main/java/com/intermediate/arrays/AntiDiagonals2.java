@@ -114,16 +114,17 @@ public class AntiDiagonals2 {
 	        	temp[j] = A[j][k];
 	        }
 	        System.out.println();
-	        result2[j][k](temp);
+	        //result2[j][k](temp);
 	    }
-	    for(int i=1;i<n;i++){
-	        vector<int>temp; 
-	        for(int j=i,k=n-1;k>=i;j++,k--){
-	            temp.push_back(A[j][k]); 
+	    /*for(int i=1;i<N;i++){
+	        //vector<int>temp;
+			ArrayList<Integer> temp = new ArrayList<Integer>();
+	        for(int j=i,k=N-1;k>=i;j++,k--){
+	            temp.add(A[j][k]);
 	        }
-	        res.push_back(temp);
+	        res.[temp];
 	    }
-	    return res;
+	    return res;*/
 		
 		
 		

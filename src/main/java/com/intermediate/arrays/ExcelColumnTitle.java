@@ -108,7 +108,7 @@ public class ExcelColumnTitle {
 	public static void main(String[] args) {
 
 		ExcelColumnTitle excelColumnNumber = new ExcelColumnTitle();
-		String result = excelColumnNumber.convertToTitle(705);
+		String result = excelColumnNumber.convertToTitle(943566);
 		// BCSUS -- 980089
 		// 943566 -- BAQTZ
 		System.out.println("The Column Title is:>>" + result);

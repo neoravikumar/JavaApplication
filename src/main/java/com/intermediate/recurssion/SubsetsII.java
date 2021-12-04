@@ -4,86 +4,89 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 /*
- Subset
+ Subsets II
 Problem Description
 
-Given a set of distinct integers, A, return all possible subsets.
+Given a collection of integers denoted by array A of size N that might contain duplicates, return all possible subsets.
 
 NOTE:
 
 Elements in a subset must be in non-descending order.
 The solution set must not contain duplicate subsets.
-Also, the subsets should be sorted in ascending ( lexicographic ) order.
-The list is not necessarily sorted.
+The subsets must be sorted lexicographically.
 
 
 Problem Constraints
-1 <= |A| <= 16
-INTMIN <= A[i] <= INTMAX
+0 <= N <= 16
+
 
 
 Input Format
-First and only argument of input contains a single integer array A.
+Only argument is an integer array A of size N.
 
 
 
 Output Format
-Return a vector of vectors denoting the answer.
+Return a 2-D vector denoting all the possible subsets.
 
 
 
 Example Input
 Input 1:
 
-A = [1]
+ A = [1, 2, 2]
 Input 2:
 
-A = [1, 2, 3]
+ A = [1, 1]
 
 
 Example Output
 Output 1:
 
-[
-    []
-    [1]
-]
+ [
+    [],
+    [1],
+    [1, 2],
+    [1, 2, 2],
+    [2],
+    [2, 2]
+ ]
 Output 2:
 
-[
- []
- [1]
- [1, 2]
- [1, 2, 3]
- [1, 3]
- [2]
- [2, 3]
- [3]
-]
+ [
+    [],
+    [1],
+    [1, 1]
+ ]
 
 
 Example Explanation
 Explanation 1:
 
- You can see that these are all possible subsets.
-Explanation 2:
-
-You can see that these are all possible subsets.
-
+All the subsets of the array [1, 2, 2] in lexicographically sorted order.
  */
-public class Subset {
+public class SubsetsII {
 
 	public ArrayList<ArrayList<Integer>> subsets(ArrayList<Integer> A) {
 
 		ArrayList<ArrayList<Integer>> result = new ArrayList<ArrayList<Integer>>();
-		Set<Integer> set = new HashSet<>(A);
-		A.clear();
-		A.addAll(set);
+		Set<HashSet<Integer>> set = new HashSet<HashSet<Integer>>();
+		//A.clear();
+		//A.addAll(set);
 		Collections.sort(A);
 		subsetsHelper(result, new ArrayList<>(), A, 0);
+		
+		HashSet<Integer> aa = new HashSet<Integer>();
+		for(ArrayList<Integer> a : result) {
+			System.out.println(">>"+a);
+			aa.addAll(a);
+			System.out.println("<<"+aa);
+		}
+		
 		return result;
 	}
 
@@ -102,8 +105,8 @@ public class Subset {
 
 	public static void main(String[] args) {
 		
-		Subset subset = new Subset();
-		 ArrayList<ArrayList<Integer>> result = subset.subsets(new ArrayList<Integer>(Arrays.asList(1)));
+		SubsetsII subset = new SubsetsII();
+		 ArrayList<ArrayList<Integer>> result = subset.subsets(new ArrayList<Integer>(Arrays.asList(1,2,2)));
 		 System.out.println(result);
 
 	}

@@ -1,5 +1,9 @@
 package com.intermediata.test;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+
 public class Test22 {
 
 	private static final long MOD = 0;
@@ -19,9 +23,18 @@ public class Test22 {
 		long MOD = (long) (Math.pow(10, 9)+7);
 		long result = ((power % MOD) * (multiple%MOD) % MOD);
 		
-		int result = new Long()
+		long result2 = new Long(25);
 		
 		System.out.println(result);
+		
+		
+		ArrayList<Integer> Aa = new ArrayList<Integer>(Arrays.asList(-1, -2, -3, 4, 5));
+		Collections.sort(Aa);
+		System.out.print(Aa);
+		
+		
+		
+		System.out.println(4980%10);
 	}
 
 }
