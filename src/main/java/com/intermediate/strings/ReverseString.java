@@ -55,6 +55,12 @@ Explanation 2:
     We reverse the string word by word so the string becomes "this is ib".
  */
 public class ReverseString {
+	
+	public static String toBinaryString(int n)
+    {
+        return String.format("%32s", Integer.toBinaryString(n))
+                    .replaceAll(" ", "0");
+    }
 
 	public String solve(String A) {
 		Pattern pattern = Pattern.compile("\\s");

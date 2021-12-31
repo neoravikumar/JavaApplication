@@ -5,7 +5,8 @@ import java.util.Arrays;
 import java.util.Collections;
 
 /*
- Min XOR value
+
+Min XOR value
 Problem Description
 
 Given an integer array A of N integers, find the pair of integers in the array which have minimum XOR value. Report the minimum XOR value.
@@ -50,7 +51,9 @@ Example Explanation
 Explanation 1:
 
  0 xor 2 = 2
+ 
  */
+
 public class MinXORValue {
 
 	public int findMinXor(ArrayList<Integer> A) {
@@ -66,7 +69,7 @@ public class MinXORValue {
 	}
 
 	public static void main(String[] args) {
-		System.out.println(new MinXORValue().findMinXor(new ArrayList<Integer>(Arrays.asList(0, 4, 7, 9))));
+		System.out.println(new MinXORValue().findMinXor(new ArrayList<Integer>(Arrays.asList(15, 5, 1, 10, 2))));
 	}
 
 }

@@ -57,30 +57,60 @@ Move 4 in between -1 and -2, A => [-1, 4, -2, -3, 5]
 Move 5 in between -2 and -3, A => [-1, 4, -2, 5, -3]
  */
 public class AlternatePositiveAndNegativeElements {
-	
+
+	public void insert(ArrayList<Integer> A, int position, int foundIndex) {
+
+	}
+
 	public ArrayList<Integer> solve(ArrayList<Integer> A) {
+
+		// Approach Using SC ( N )
 		
-		ArrayList<Integer> result = new ArrayList<Integer>();
-		
-		int fElement = A.get(0);
-		result.add(fElement);
-		for(int k=1;k<A.size();k++) {
-			if(result.get(k-1)<0 && A.get(k)>0) {
-				result.add(k);
-			}
-			
-			if(result.get(k-1)>0 && A.get(k)<0) {
-				result.add(k);
+		ArrayList<Integer> positiveArray = new ArrayList<Integer>();
+		ArrayList<Integer> negativeArray = new ArrayList<Integer>();
+
+		for (int k = 0; k < A.size(); k++) {
+			int value = A.get(k);
+			if (value < 0) {
+				negativeArray.add(value);
+			} else {
+				positiveArray.add(value);
 			}
 		}
-		
-		System.out.println(result);
+
+		A.clear();
+
+		int positiveIndex = 0;
+		for (int k = 0; k < negativeArray.size(); k++) {
+			A.add(negativeArray.get(k));
+			if (positiveArray.size() > k) {
+				A.add(positiveArray.get(k));
+				positiveIndex++;
+			}
+		}
+
+		if (positiveIndex < positiveArray.size()) {
+			for (; positiveIndex < positiveArray.size(); positiveIndex++) {
+				A.add(positiveArray.get(positiveIndex));
+			}
+		}
 		return A;
-    }
+		 
+
+		// Approach for O(1)
+		/*
+		 * int N = A.size(); for (int i = 0; i < N; i++) { if(A.get(i)<0) {
+		 * 
+		 * } } return A;
+		 */
+
+		
+
+	}
 
 	public static void main(String[] args) {
 		AlternatePositiveAndNegativeElements apInt = new AlternatePositiveAndNegativeElements();
-		ArrayList<Integer> A = new ArrayList<Integer>(Arrays.asList(-1, 4, -2, 5, -3));
+		ArrayList<Integer> A = new ArrayList<Integer>(Arrays.asList(5, -17, 15, 67));
 		apInt.solve(A);
 
 	}

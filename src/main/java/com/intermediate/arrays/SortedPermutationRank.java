@@ -1,5 +1,7 @@
 package com.intermediate.arrays;
 
+import java.math.BigInteger;
+
 /*
  Sorted Permutation Rank
 Problem Description
@@ -62,45 +64,85 @@ Given A = "a".
 Rank is clearly 1.
  */
 public class SortedPermutationRank {
+	
+	
+	
+	/*
+	 * // Iterative function to calculate factorial of a number public static long
+	 * factorial(int n) { long fact = 1; for (int i = 1; i <= n; i++) { fact = fact
+	 * * i; } return fact; }
+	 */
+    
+ // Returns Factorial of N
+ 	static BigInteger factorial(int N) {
+ 		// Initialize result
+ 		BigInteger f = new BigInteger("1"); // Or BigInteger.ONE
 
-	public int findRank(String A) {
+ 		// Multiply f with 2, 3, ...N
+ 		for (int i = 2; i <= N; i++)
+ 			f = f.multiply(BigInteger.valueOf(i));
 
-		long rank = 1;
+ 		return f;
+ 	}
+ 
+    // Function to find the lexicographic rank of a string
+    public static long findLexicographicRank(String str)
+    {
+    	int n = str.length(); 
+        long mod = 1000003;
+        long ans = 1; // As we have to add 1 to get rank. 
+        for (int i = 0; i < n; i++) { 
+        	long less_than = 0; 
+            for (int j = i + 1; j < n; j++) { 
+                if ((int)str.charAt(i) > (int)str.charAt(j)) { 
+                    less_than += 1; 
+                } 
+            } 
+            
+            long permutation = (factorial(n-i-1).longValue()) % mod;
+            long total_permutation = (less_than * permutation) % mod;
+            
+            ans = (ans + total_permutation)%mod; 
+        } 
+        return ans; 
+    }
+ 
+    public static void main(String[] args)
+    {
+        String str = "gTFAMYjxCewRlftmGOKJHUuhSBVDZnbqyoPQadEkLrpNsv";
+ 
+        System.out.println("The lexicographic rank of " + str + " is ::\n"
+                + findLexicographicRank(str));
+    }
+	
+	
+	
+	
 
-		if (A == null) {
-			return 0;
-		}
-
-		for (int i = 0; i < A.length() - 1; i++) {
-			int count = 0;
-			for (int j = i + 1; j < A.length(); j++) {
-				if (A.charAt(i) > A.charAt(j)) {
-					count++;
-				}
-			}
-
-			long facValue = factorial(A.length() - 1 - i) % 1000003;
-			rank += (count * facValue) % 1000003;
-			
-			rank = rank % 1000003;
-		}
-		return new Long(rank).intValue();
-	}
-
-	public static long factorial(int n) {
-		long fact = 1;
-		for (int i = 1; i <= n; i++) {
-			fact = (fact * i) % 1000003;
-		}
-		return fact % 1000003;
-	}
-
-	public static void main(String[] args) {
-
-		SortedPermutationRank sortedPermutationRank = new SortedPermutationRank();
-
-		int result = sortedPermutationRank.findRank("DTNGJPURFHYEW");
-		System.out.println(result);
-	}
+	/*
+	 * public int findRank(String A) {
+	 * 
+	 * long rank = 1;
+	 * 
+	 * if (A == null) { return 0; }
+	 * 
+	 * for (int i = 0; i < A.length() - 1; i++) { int count = 0; for (int j = i + 1;
+	 * j < A.length(); j++) { if (A.charAt(i) > A.charAt(j)) { count++; } }
+	 * 
+	 * long facValue = factorial(A.length() - 1 - i) % 1000003; rank += (count *
+	 * facValue) % 1000003;
+	 * 
+	 * rank = rank % 1000003; } return new Long(rank).intValue(); }
+	 * 
+	 * public static long factorial(int n) { long fact = 1; for (int i = 1; i <= n;
+	 * i++) { fact = (fact * i) % 1000003; } return fact % 1000003; }
+	 * 
+	 * public static void main(String[] args) {
+	 * 
+	 * SortedPermutationRank sortedPermutationRank = new SortedPermutationRank();
+	 * 
+	 * int result = sortedPermutationRank.findRank("DTNGJPURFHYEW");
+	 * System.out.println(result); }
+	 */
 
 }

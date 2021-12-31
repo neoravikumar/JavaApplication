@@ -4,7 +4,8 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 /*
- Different Bits Sum Pairwise
+
+Different Bits Sum Pairwise
 Problem Description
 
 We define f(X, Y) as number of different corresponding bits in binary representation of X and Y.
@@ -57,6 +58,7 @@ Explanation 1:
 Explanation 2:
 
  f(2, 2) + f(2, 3) + f(3, 2) + f(3, 3) = 0 + 1 + 1 + 0 = 2
+ 
  */
 public class DifferentBitsSumPairwise {
 

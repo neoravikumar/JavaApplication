@@ -1,5 +1,8 @@
+import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.Arrays;
+
+import javax.crypto.spec.SecretKeySpec;
 
 public class Test {
 	
@@ -38,7 +41,50 @@ public class Test {
         
         System.out.println("Or operations:>");
         System.out.println(3|3);
+        
+        
+        String[] adPasswordCryptoKeys = { "-62", "94", "110", "117", "69", "98", "70", "110" };
+        
+        toByteArray(adPasswordCryptoKeys);
+        
+        System.out.println("Hello:>>"+ (7>>0));
+        
+        
+		/*
+		 * byte[] newPlainText = this.cipher.doFinal(Base64.decode(in.getBytes()));
+		 * return new String(newPlainText, "UTF8");
+		 * 
+		 * key = new SecretKeySpec(publicKey, transformation);
+		 */
+        
 		
 	}
+	
+	
+	
+	
+	 public static byte[] toByteArray(String[] tokens) {
+	        byte[] output = null;
+	        if (tokens != null) {
+	            output = new byte[tokens.length];
+	            for(int i = 0; i < tokens.length; i++){
+	                output[i] = Byte.decode(tokens[i]).byteValue();
+	            }
+	            
+	           try {
+				String myString = new String(output, "UTF8");
+				
+				System.out.println(">>>>>::::"+myString);
+			} catch (UnsupportedEncodingException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+	            return output;
+	        }
+	        return output;
+	    }
+	 
+	 
+	 
 
 }

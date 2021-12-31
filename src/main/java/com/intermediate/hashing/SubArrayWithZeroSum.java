@@ -6,8 +6,6 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-import com.intermediate.arrays.SmallerAndGreater2;
-
 /*Problem Description
 
 Given an array of integers A, find and return whether the given array contains a non-empty subarray with a sum equal to 0.
@@ -61,20 +59,37 @@ Explanation 2:
 public class SubArrayWithZeroSum {
 
 	public int solve(ArrayList<Integer> A) {
+
 		Set<Long> resultSet = new HashSet<Long>();
 		ArrayList<Long> prefixSum = new ArrayList<Long>();
 
 		int N = null != A ? A.size() : 0;
 		int resultInt = 0;
 
+//		for (int i = 0; i < N; i++) {
+//			for (int j = i; i < N; i++) {
+//				List<Integer> subArray = A.subList(i + 1, j + 1);
+//				for (Integer a : subArray) {
+//					sum += a;
+//					if (sum == 0) {
+//						return 1;
+//					}
+//				}
+//			}
+//
+//		}
+
+	
+
 		if (N >= 1 && N <= 100000) {
 
-			if (A.get(0) >= (-Math.pow(10, 9)) && A.get(0) <= Math.pow(10, 9)) {
-			// Prefix Sum calculation
-			prefixSum.add(Long.valueOf(A.get(0)) );
-			resultSet.add(Long.valueOf(A.get(0)) );
+			if (A.get(0) >= (-Math.pow(10, 9)) && A.get(0) <= Math.pow(10, 9)) { // Prefix Sum calculation
+				prefixSum.add(Long.valueOf(A.get(0)));
+				resultSet.add(Long.valueOf(A.get(0)));
 			}
-			for (int i = 1; i < N; i++) {
+			for (
+
+					int i = 1; i < N; i++) {
 				if (A.get(i) >= (-Math.pow(10, 9)) && A.get(i) <= Math.pow(10, 9)) {
 					Long sum = A.get(i) + prefixSum.get(i - 1);
 					prefixSum.add(i, sum);
@@ -85,7 +100,7 @@ public class SubArrayWithZeroSum {
 						resultSet.add(prefixSum.get(i));
 					}
 				}
-				
+
 			}
 		}
 
