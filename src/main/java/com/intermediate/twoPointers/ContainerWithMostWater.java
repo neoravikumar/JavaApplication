@@ -68,7 +68,22 @@ No container is formed.
 public class ContainerWithMostWater {
 	
 	public int maxArea(ArrayList<Integer> A) {
-		return 0;
+		int i=0;
+        int j=A.size()-1;
+        int area = 0;
+        int maxarea = 0;
+        while(i<j){
+            int v1 = A.get(i);
+            int v2 = A.get(j);
+            area = (j-i)*(Math.min(v1,v2));
+            maxarea = Math.max(area,maxarea);
+            if(v1<=v2){
+                i++;
+            }else{
+                j--;
+            }
+        }
+        return maxarea;
     }
 
 	public static void main(String[] args) {

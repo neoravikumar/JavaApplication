@@ -2,6 +2,11 @@ package com.intermediate.twoPointers;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
 
 /*
  Pairs with given sum II
@@ -57,65 +62,117 @@ Explanation 2:
  only pair (1, 2) sums up to 2.
  */
 public class PairsWithGivenSumII {
-
-	static int BS(int[] arr, int X, int low) {
-		int high = arr.length - 1;
-		int ans = arr.length;
-		while (low <= high) {
-			int mid = low + (high - low) / 2;
-			if (arr[mid] >= X) {
-				ans = mid;
-				high = mid - 1;
-			} else
-				low = mid + 1;
-		}
-		return ans;
-	}
 	
 	
 	
-	static int countPairsWithSumK(int arr[], int n, int k) {
-		int count = 0;
-		Arrays.sort(arr); // Sort array elements
-		int l = 0;
-		int r = 0;
-		while (r < n) {
-			if (arr[r] + arr[l] == k) {
-				count++;
-				l++;
-				r++;
-			} else if (arr[r] + arr[l] > k)
-				l++;
-			else // arr[r] - arr[l] < sum
-				r++;
-		}
-		return count;
-	}
-
-	int solve(int[] A, int B) {
-		int count = 0;
-		int N = A.length;
-
-		/*
-		 * for (int i = 0; i < N; i++) { for (int j = i + 1; j < N; j++) { if (A[i] +
-		 * A[j] == B) { count++; } } }
-		 */
-
+	public int printPairsUsingSet(int[] numbers, int n){
+	   
+		Map<Integer, Integer> dataMap = new HashMap<>();
 		
-		/*
-		 * for (int i = 0; i < N; ++i) { int X = BS(A, A[i] + B, i + 1); if (X != N) {
-		 * int Y = BS(A, A[i] + B + 1, i + 1); count += Y - X; } }
-		 */
-		 
-		count = countPairsWithSumK(A, N, B);
-		
-		return count;
+		int count = 0;
+	    
+	    for(Integer num : numbers) {
+	    	if(dataMap.containsKey(num)) {
+	    		dataMap.put(num, dataMap.get(num)+1);
+	    	}else {
+	    		dataMap.put(num, 1);
+	    	}
+	    }
+	    
+	    
+		Set<Integer> set = new HashSet<>(numbers.length);
+
+		for (int value : numbers) {
+			int target = n - value;
+
+			// if target number is not in set then add
+			if (!set.contains(target)) {
+				set.add(value);
+			} else {
+				System.out.printf("(%d, %d) %n", value, target);
+				int noOfElement = dataMap.get(target);
+				count += noOfElement * 1;
+			}
+		}
+		    
+	    return count;
+	    
+    }	
+	
+	
+	public int printPairs(int[] A, int B) {
+		int n = A.length;
+		HashMap<Integer,Integer> map = new HashMap<>();
+		long pairs=0;
+        long MOD = (long) (Math.pow(10, 9)+7);
+        for (int i=0; i<n; i++)
+        {
+            if (map.containsKey(B - A[i]))
+            {
+                pairs += map.get(B - A[i]);
+            }
+            map.put(A[i] , map.getOrDefault(A[i],0)+1);
+        }
+        return (int) (pairs % MOD);
 	}
 
+	public int solve(int[] A, int B) {
+
+		int start = 0;
+		int end = A.length - 1;
+		int pairs_count = 0;
+		while (start < end) {
+			int temp_sum = A[start] + A[end];
+			if (temp_sum > B) {
+				end -= 1;
+			} else if (temp_sum < B) {
+				start += 1;
+			} else {
+				pairs_count += 1;
+				start += 1;
+				end -= 1;
+			}
+		}
+		return pairs_count;
+
+	}
+
+	
+	public static void printSumPairs(int []input, int k){
+		int count =0;
+	    Map<Integer, Integer> pairs = new HashMap<Integer, Integer>();
+
+	    for(int i=0;i<input.length;i++){
+
+	        if(pairs.containsKey(input[i])) {
+	            System.out.println(input[i] +", "+ pairs.get(input[i])); 
+	            count++;
+	            System.out.println(count);
+	        }else
+	            pairs.put(k-input[i], input[i]);
+	    }
+
+	}
+	
+	
 	public static void main(String[] args) {
-		int arr[] = {2, 3, 5, 6, 10 };
-		int k = 6;
-		System.out.println("Count of pairs with given SUM is " + new PairsWithGivenSumII().solve(arr, k));
+		int arr[] = {1,1};
+		int k = 2;
+		
+		PairsWithGivenSumII pairsWithGivenSumII = new PairsWithGivenSumII();
+		ArrayList<Integer> inputArrayList = new ArrayList<Integer>(Arrays.asList(2, 3, 5, 6, 10));
+		System.out.println("Count of pairs with given SUM is " + pairsWithGivenSumII.solve(arr, k));
+		
+		int result = pairsWithGivenSumII.printPairsUsingSet(arr, k);
+		System.out.println("new method:>>"+result/2);
+		
+		System.out.println("// 3rd Approach");
+		PairsWithGivenSumII.printSumPairs(arr, k);
+		
+		
+		System.out.println("// Another Approach");
+		int kResult = pairsWithGivenSumII.printPairs(arr, k);
+		System.out.println(kResult);
 
 	}
 
