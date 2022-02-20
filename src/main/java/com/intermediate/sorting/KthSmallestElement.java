@@ -87,13 +87,13 @@ public class KthSmallestElement {
 
 		KthSmallestElement kthSmallestElement = new KthSmallestElement();
 
-		List<Integer> lst = Arrays.asList(10);
+		List<Integer> lst = Arrays.asList(2, 1, 4, 3, 2);
 		// List<Integer> lst = Arrays.asList(-4, -2, 0, -1, -6 );
 
 		ArrayList<Integer> abc = new ArrayList<Integer>();
 		abc.addAll(lst);
 
-		System.out.println(kthSmallestElement.kthsmallest(abc, 0));
+		System.out.println(kthSmallestElement.kthsmallest(abc, 3));
 	}
 
 }

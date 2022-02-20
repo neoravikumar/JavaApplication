@@ -1,6 +1,8 @@
 package com.intermediate.searching;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
 
 /*
  Maximum & Minimum Magic
@@ -79,12 +81,32 @@ Explanation 2:
 public class MaximumAndMinimumMagic {
 
 	public ArrayList<Integer> solve(ArrayList<Integer> A) {
-		return A;
+		Collections.sort(A);
+		long max = 0;
+		long min = 0;
+		int N = A.size();
+		final long MOD = (long) Math.pow(10, 9) + 7;
+		ArrayList<Integer> result = new ArrayList<Integer>();
+		// Finding the minimum magaic Number
+		for (int i = 0; i < N -1; i += 2) {
+			min = min + (Math.abs(A.get(i) - A.get(i + 1)) % MOD);
+		}
+
+		// For Max the magic number
+		int mid= N/2;
+		for (int i = 0; i < mid; i++) {
+			max = max + (Math.abs(A.get(i) - A.get(i + mid)) % MOD);
+		}
+		max = max % MOD;
+		result.add((int)max);
+		result.add((int)min);
+		return result;
 	}
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
+		MaximumAndMinimumMagic  maximumAndMinimumMagic = new MaximumAndMinimumMagic();
+		ArrayList<Integer> result = maximumAndMinimumMagic.solve(new ArrayList<Integer>(Arrays.asList(-98, 54, -52, 15, 23, -97, 12, -64, 52, 85)));
+		System.out.println(result);
 	}
 
 }

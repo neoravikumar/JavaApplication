@@ -130,7 +130,7 @@ public class InversionCountInAnArray2 {
 	public static void main(String[] args) {
 
 		InversionCountInAnArray2 inAnArray = new InversionCountInAnArray2();
-		int[] arr = { 1, 3, 2, 3, 1 };
+		int[] arr = { 45, 10, 15, 25, 50 };
 		int result = inAnArray.solve(arr);
 		System.out.println("Result is:>>" + result);
 

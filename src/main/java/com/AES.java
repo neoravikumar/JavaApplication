@@ -14,7 +14,7 @@ public class AES {
     private static SecretKeySpec secretKey;
     private static byte[] key;
     
-    byte[] adPasswordCryptoKeys = { '-62', "94", "110", "117", "69", "98", "70", "110" };
+    String[]  adPasswordCryptoKeys = { "-62", "94", "110", "117", "69", "98", "70", "110" };
  
     public static void setKey(String myKey) 
     {

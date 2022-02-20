@@ -12,24 +12,22 @@ import com.sun.xml.internal.messaging.saaj.packaging.mime.util.BASE64EncoderStre
 //import java.util.Base64;
 
 public class Cryptography {
+	
+	
+	
+	
 
 	public static void main(String[] args) {
 
 		String[] adPasswordCryptoKeys = {"-62","94","110","117","69","98","70","110"};
-		//String[] adPasswordCryptoKeys = {"-62","94","110","117","69","98","70","110"};
 		String algo = "DES";
 		Cryptography crypt = new Cryptography(adPasswordCryptoKeys, algo);
 
-		//String result = crypt.decryptPassword("lqSOtG0O4kDhXmHvzDawCg==");
-		String encresult = crypt.encryptPassword("December");
-		// P88JznlP
-
-		
-		//String result = encryptPassword
+		String encresult = crypt.encryptPassword("&2DeuaTA%w)3");
 		
 		System.out.println("Encrypted result::>"+encresult);
 		
-		System.out.println("DecryptPassword:>>"+crypt.decryptPassword(""));
+		System.out.println("DecryptPassword:>>"+crypt.decryptPassword("HMs5BHgqmh+8bPs6FtLpwuFeYe/MNrAK"));
 
 	}
 

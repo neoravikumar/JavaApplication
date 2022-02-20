@@ -1,7 +1,6 @@
 package com.intermediate.arithmetic;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Iterator;
 
 /*
@@ -62,24 +61,24 @@ public class LuckyNumbers {
 	public int solve(int A) {
 
 		// Vector to store such numbers
-	    ArrayList<Integer> vec = new ArrayList<Integer>();
+	    ArrayList<Integer> inputArray = new ArrayList<Integer>();
 	 
 	    for (int i = 1; i <= A; i++) {
 	        if (isProduct(i) && !isPerfectSquare(i)) {
 	 
 	            // insert in the vector
-	            vec.add(i);
+	            inputArray.add(i);
 	        }
 	    }
 	 
 	    
 	 // Print all numbers till n from the vector
-	    Iterator<Integer> itr = vec.iterator(); 
+	    Iterator<Integer> itr = inputArray.iterator(); 
 	            while(itr.hasNext()){ 
 	                 System.out.print(itr.next()+" "); 
 	            } 
 	    
-	    return vec.size(); 
+	    return inputArray.size(); 
 
 	}
 	
@@ -109,12 +108,12 @@ public class LuckyNumbers {
 	    if (num > 1)
 	        ++cnt;
 	 
-	    return cnt == 2;
+	    return cnt >= 2;
 	}
 
 	public static void main(String[] args) {
 		LuckyNumbers luckyNumbers = new LuckyNumbers();
-		int result = luckyNumbers.solve(15);
+		int result = luckyNumbers.solve(12);
 		System.out.println("Result:>"+result);
 
 	}

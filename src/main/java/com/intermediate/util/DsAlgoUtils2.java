@@ -110,10 +110,10 @@ public class DsAlgoUtils2 {
 				array[k] = right[j];
 				j++;
 				k++;
-				ic++;
+				inversionCount++;
 			}
 			
-			System.out.println("IC:>>"+ic);
+			System.out.println("IC:>>"+inversionCount);
 		}
 	}
 

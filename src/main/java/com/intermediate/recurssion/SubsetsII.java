@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.HashSet;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Set;
 
@@ -71,38 +72,26 @@ All the subsets of the array [1, 2, 2] in lexicographically sorted order.
  */
 public class SubsetsII {
 
-	public ArrayList<ArrayList<Integer>> subsets(ArrayList<Integer> A) {
+	/*
+	 * public ArrayList<ArrayList<Integer>> subsets(ArrayList<Integer> A) {
+	 * 
+	 * Collections.sort(A); ArrayList<ArrayList<Integer>> ans = new ArrayList<>();
+	 * LinkedList<Integer> output = new LinkedList(); int n = A.size(); for (int i =
+	 * 0; i <= n; ++i) { backtrack(ans, output, A, n, i, 0); } return ans; }
+	 * 
+	 * 
+	 * public void backtrack(ArrayList<ArrayList<Integer>> ans, LinkedList<Integer>
+	 * output, ArrayList<Integer> nums, int n, int k, int start) { if (output.size()
+	 * == k) { ans.add(new ArrayList(output)); return; } for (int i = start; i < n;
+	 * ++i) { if (i > start && nums.get(i) == nums.get(i-1)) continue;
+	 * output.add(nums.get(i)); backtrack(ans, output, nums, n, k, i + 1);
+	 * output.removeLast(); } }
+	 */
+	
+	
 
-		ArrayList<ArrayList<Integer>> result = new ArrayList<ArrayList<Integer>>();
-		Set<HashSet<Integer>> set = new HashSet<HashSet<Integer>>();
-		//A.clear();
-		//A.addAll(set);
-		Collections.sort(A);
-		subsetsHelper(result, new ArrayList<>(), A, 0);
-		
-		HashSet<Integer> aa = new HashSet<Integer>();
-		for(ArrayList<Integer> a : result) {
-			System.out.println(">>"+a);
-			aa.addAll(a);
-			System.out.println("<<"+aa);
-		}
-		
-		return result;
-	}
 
- 
-    private void subsetsHelper(ArrayList<ArrayList<Integer>>  list , ArrayList<Integer> resultList, ArrayList<Integer> nums, int start){
-        list.add(new ArrayList<>(resultList));
-        for(int i = start; i < nums.size(); i++){
-           // add element
-            resultList.add(nums.get(i));
-           // Explore
-            subsetsHelper(list, resultList, nums, i + 1);
-           // remove
-            resultList.remove(resultList.size() - 1);
-        }
-    }
-
+	
 	public static void main(String[] args) {
 		
 		SubsetsII subset = new SubsetsII();

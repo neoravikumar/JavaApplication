@@ -58,6 +58,16 @@ public class Test {
 		 */
         
 		
+        String URL = "https://eu8-smax.saas.microfocus.com/rest/778901870/ems/Offering?layout=Id&filter=DisplayLabel='WCI - Check-In Check-Out'";
+        
+        System.out.println(URL);
+        
+        String booleanR = "false";
+        Boolean result = Boolean.parseBoolean(booleanR);
+        if(result) {
+        	System.out.println("ResultTrue......");
+        }
+        
 	}
 	
 	

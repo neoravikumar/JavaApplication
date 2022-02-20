@@ -1,5 +1,8 @@
 package com.intermediate.arrays;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+
 /*
  Minimum Swaps 2
 Problem Description
@@ -55,8 +58,26 @@ Explanation 2:
  */
 public class MinimumSwaps2 {
 
+	public int solve(ArrayList<Integer> A) {
+		int swap = 0;
+		for (int i = 0; i < A.size(); i++) {
+			while (A.get(i) != i) {
+				int tmp = A.get(i);
+				int tmp2 = A.get(A.get(i));
+				A.set(i, tmp2);
+				A.set(tmp, tmp);
+				swap++;
+			}
+		}
+		return swap;
+	}
+
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
+
+		MinimumSwaps2 array3Pointers = new MinimumSwaps2();
+		ArrayList<Integer> A = new ArrayList<Integer>(Arrays.asList(2, 0, 1, 3));
+		int result = array3Pointers.solve(A);
+		System.out.println(result);
 
 	}
 

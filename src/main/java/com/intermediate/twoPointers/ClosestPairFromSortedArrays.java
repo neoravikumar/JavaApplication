@@ -72,42 +72,80 @@ Explanation 2:
 public class ClosestPairFromSortedArrays {
 
 	public ArrayList<Integer> solve(ArrayList<Integer> A, ArrayList<Integer> B, int C) {
-
-		if (A.size() == 0 || B.size() == 0) {
-			return null;
+		int diff = Integer.MAX_VALUE;
+		int resl = 0, resr = 0;
+		int l = 0, r = B.size() - 1;
+		while (l < A.size() && r >= 0) {
+			int temp = A.get(l) + B.get(r) - C;
+			if (temp < 0)
+				temp = temp * -1;
+			if (temp < diff) {
+				resl = l;
+				resr = r;
+				diff = temp;
+			} else if (diff == temp && resl == l) {
+				resr = r;
+			}
+			if (A.get(l) + B.get(r) >= C)
+				r--;
+			else
+				l++;
 		}
+		ArrayList<Integer> ans = new ArrayList<Integer>();
+		ans.add(A.get(resl));
+		ans.add(B.get(resr));
+		return ans;
+	}
 
-		int x = 0;
-		int y = B.size() - 1;
+	ArrayList<Integer> printClosest(ArrayList<Integer> ar1, ArrayList<Integer> ar2, int m, int n, int x) {
+		// Initialize the diff between pair sum and x.
+		int diff = Integer.MAX_VALUE;
 
-		ArrayList<Integer> result = new ArrayList<Integer>();
+		// res_l and res_r are result indexes from ar1[] and ar2[]
+		// respectively
+		int res_l = 0, res_r = 0;
 
-		for (int i = 0, j = B.size() - 1; i < A.size() && j >= 0;) {
-			if (Math.abs(A.get(i) + B.get(j) - C) < Math.abs(A.get(x) + B.get(y) - C)) {
-				x = i;
-				y = j;
+		// Start from left side of ar1[] and right side of ar2[]
+		int l = 0, r = n - 1;
+		while (l < m && r >= 0) {
+			// If this pair is closer to x than the previously
+			// found closest, then update res_l, res_r and diff
+			if (Math.abs(ar1.get(l) + ar2.get(r) - x) < diff) {
+				res_l = l;
+				res_r = r;
+				diff = Math.abs(ar1.get(l) + ar2.get(r) - x);
 			}
 
-			if (A.get(i) + B.get(j) < C) {
-				i++;
-			} else if (A.get(i) + B.get(j) > C) {
-				j--;
-			} else {
-				i++;
-				j--;
-			}
+			// If sum of this pair is more than x, move to smaller
+			// side
+			if (ar1.get(l) + ar2.get(r) > x)
+				r--;
+			else // move to the greater side
+				l++;
 		}
 
-		result.add(A.get(x));
-		result.add(B.get(y));
-		return result;
+		// Print the result
+		System.out.print("The closest pair is [" + ar1.get(res_l) + ", " + ar2.get(res_r) + "]");
+		return null;
 	}
 
 	public static void main(String[] args) {
 		ClosestPairFromSortedArrays closestPairFromSortedArrays = new ClosestPairFromSortedArrays();
-		ArrayList<Integer> result = closestPairFromSortedArrays.solve(new ArrayList<Integer>(Arrays.asList(1, 2, 3, 4, 5)), new ArrayList<Integer>(Arrays.asList(2, 4, 6, 8)), 9);
+		// ArrayList<Integer> result = closestPairFromSortedArrays.solve(new
+		// ArrayList<Integer>(Arrays.asList(1)), new ArrayList<Integer>(Arrays.asList(2,
+		// 4)), 4);
+		ArrayList<Integer> result = closestPairFromSortedArrays.solve(new ArrayList<Integer>(Arrays.asList(1)),
+				new ArrayList<Integer>(Arrays.asList(2, 4)), 4);
+
+		/*
+		 * int ar1[] = {1, 4, 5, 7}; int ar2[] = {10, 20, 30, 40}; int m = ar1.length;
+		 * int n = ar2.length; int x = 38;
+		 */
+		ArrayList<Integer> ar1 = new ArrayList<Integer>(Arrays.asList(1));
+		ArrayList<Integer> ar2 = new ArrayList<Integer>(Arrays.asList(2, 4));
+		closestPairFromSortedArrays.printClosest(ar1, ar2, ar1.size(), ar2.size(), 4);
+
 		System.out.println(result);
-		
 
 	}
 

@@ -1,6 +1,5 @@
 package com.intermediate.sorting;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 
 /*

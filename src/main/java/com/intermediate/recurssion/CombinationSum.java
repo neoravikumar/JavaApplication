@@ -145,7 +145,7 @@ public class CombinationSum {
 	public static void main(String[] args) {
 		CombinationSum combinationSum = new CombinationSum();
 		ArrayList<Integer> input = new ArrayList<Integer>(Arrays.asList(2, 3, 6, 7));
-		ArrayList<ArrayList<Integer>> result = combinationSum.combSum(input, 7);
+		ArrayList<ArrayList<Integer>> result = combinationSum.combinationSum(input, 7);
 		System.out.println(result);
 
 	}

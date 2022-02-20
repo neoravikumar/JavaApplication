@@ -1,9 +1,6 @@
 package com.intermediate.hashing;
 
-import java.util.HashMap;
 import java.util.HashSet;
-import java.util.Map;
-import java.util.Set;
 
 /*Replicating Substring
  *
@@ -70,7 +67,7 @@ public class ReplicatingSubstring {
 		int N = null != B ? B.length() : 0;
 		int resultInt = 1;
 		if (A >= 1 && A <= 1000) {
-			if(A>N) {
+			if (A > N) {
 				return -1;
 			}
 			if (N >= 0 && N <= 1000) {
