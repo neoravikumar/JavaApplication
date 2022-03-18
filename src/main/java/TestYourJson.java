@@ -5,7 +5,13 @@ public class TestYourJson {
 		 
 		 String json = "{\"entities\":[{\"entity_type\":\"Offering\",\"properties\":{\"LastUpdateTime\":1643645817098,\"Id\":\"1005373\"},\"related_properties\":{}}],\"meta\":{\"completion_status\":\"OK\",\"total_count\":1,\"errorDetailsList\":[],\"errorDetailsMetaList\":[],\"query_time\":1643816205327446}}";
 		 
-		  System.out.println(json);
+		  //System.out.println(json);
+		  
+		  //String input ="{\\\"complexTypeProperties\\\":[{\\\"properties\\\":{\\\"Unnamed1_c\\\":\\\"CheckIn_c\\\"}}]}";
+		  String userOptionsString = "{\\\"complexTypeProperties\\\":[{\\\"properties\\\":{\\\"Unnamed1_c\\\":\\\"CheckIn_c\\\"}}]}";
+		  
+		  
+		  System.out.println(userOptionsString);
 		    
 //		  String offeringID = StringUtils.EMPTY;
 //		    ObjectMapper objectMapper = new ObjectMapper();

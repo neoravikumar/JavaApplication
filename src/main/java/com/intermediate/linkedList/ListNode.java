@@ -9,4 +9,11 @@ public class ListNode {
 		val = x;
 		next = null;
 	}
+	
+	public static void printLinkedList(ListNode head) {
+		while(head !=null) {
+			System.out.print(head.val +"->");
+			head = head.next;
+		}
+	}
 }

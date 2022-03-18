@@ -74,11 +74,12 @@ public class MiddleElementOfLlinkedList {
 	public static void main(String[] args) {
 		MiddleElementOfLlinkedList middleElementOfLlinkedList = new MiddleElementOfLlinkedList();
 		ListNode head = new ListNode(1);
-		ListNode head2 = new ListNode(2);
-		ListNode head3 = new ListNode(3);
-		ListNode head4 = new ListNode(4);
-		ListNode head5 = new ListNode(5);
-		middleElementOfLlinkedList.solve(head);
+		head.next = new ListNode(2);
+		head.next.next = new ListNode(3);
+		head.next.next.next= new ListNode(4);
+		head.next.next.next.next = new ListNode(5);
+		int result = middleElementOfLlinkedList.solve(head);
+		System.out.println(result);
 
 	}
 

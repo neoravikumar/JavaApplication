@@ -22,6 +22,18 @@ public class Test {
 	
 	public static void main(String[] args) {
 		
+		
+		
+		System.out.println("---------------------");
+		String inputString = "/a/./b/../../c/";
+		
+		String[] myString = inputString.split("/");
+		System.out.println(myString);
+		
+		System.out.println("---------------------");
+		
+		
+		
 		//System.out.println(1<<3);
 		// Creating object of ArrayList<Integer>
         ArrayList<String>
