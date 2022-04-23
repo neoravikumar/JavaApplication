@@ -151,7 +151,7 @@ public class SearchInArowWiseAndColumn {
 
 		//int result = searchInArowWiseAndColumn.solve(arr, 91);
 		//int result = searchInArowWiseAndColumn.solve(arr2, 10);
-		int result = searchInArowWiseAndColumn.solve(arr3, 1);
+		int result = searchInArowWiseAndColumn.solve(arr3, 9);
 		System.out.println("Final REsult:>>" + result);
 
 	}

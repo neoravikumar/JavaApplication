@@ -77,8 +77,8 @@ public class ComputenCrModM {
 	public int solve(int A, int B, int C) {
 		BigInteger bigInt = binomial(A, B);
 		BigInteger biIntP = BigInteger.valueOf(C);
-		bigInt.mod(biIntP);
-		return bigInt.intValue();
+		BigInteger result = bigInt.mod(biIntP);
+		return result.intValue();
 	}
 
 	public static void main(String[] args) {

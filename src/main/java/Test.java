@@ -23,6 +23,12 @@ public class Test {
 	public static void main(String[] args) {
 		
 		
+		String abc = "DASH–CHAR–CHECK–CHECK–VA-LUE1234";
+		
+		String resultww = abc.replaceAll("/–/g", "-");
+		System.out.println(resultww);
+				
+		
 		
 		System.out.println("---------------------");
 		String inputString = "/a/./b/../../c/";

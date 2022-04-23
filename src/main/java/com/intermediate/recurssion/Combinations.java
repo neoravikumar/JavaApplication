@@ -1,6 +1,8 @@
 package com.intermediate.recurssion;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
 /*
  Combinations
@@ -73,12 +75,49 @@ All the possible combinations of size 2 in sorted order.
  */
 public class Combinations {
 	
-	public ArrayList<ArrayList<Integer>> combine(int A, int B) {
-		return null;
-    }
-
 	public static void main(String[] args) {
+		
+		Combinations combinations = new Combinations();
+		ArrayList<ArrayList<Integer>> result = combinations.combine(3,2);
+		System.out.println(result);
 
 	}
+	
+	ArrayList<ArrayList<Integer>> result;
+	
+	public ArrayList<ArrayList<Integer>> combine(int A, int B) {
+		ArrayList<ArrayList<Integer>> ans=new ArrayList<>();
+        generate(1,A,ans,new ArrayList<>(),B);
+        return ans;
+    }
+
+	
+	void generate(int start,int n,ArrayList<ArrayList<Integer>> ans,List<Integer> curr,int k){
+        if(curr.size()==k){
+            ans.add(new ArrayList<>(curr));
+            return;
+        }
+        for(int i=start;i<=n;i++){
+            curr.add(i);
+            generate(i+1,n,ans,curr,k);
+            curr.remove(curr.size()-1);
+        }
+        
+    }
+	
+	private void helper(int n, int k, ArrayList curr) {
+		 if(k == 0){
+	            result.add(new ArrayList<>(curr));
+	            return;
+	        }
+	        if(n == 0) return;
+	        curr.add(n);
+	        helper(n - 1, k - 1, curr);
+	        curr.remove(curr.size() - 1);
+	        helper(n - 1, k, curr);
+		
+	}
+
+	
 
 }

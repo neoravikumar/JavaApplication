@@ -58,48 +58,54 @@ Explanation 1:
  nCr( n=5 and r=2) = 10.
  p=13. Therefore, nCr%p = 10.
  */
-public class ComputenCrModP {
-	
-	public static void main(String[] args) {
-
-		ComputenCrModP computenCrModP = new ComputenCrModP();
-		int result = computenCrModP.solve(1, 1, 1);
-		System.out.println(result);
-
-	}
+public class ComputenCrModP2 {
 
 	public int solve(int A, int B, int C) {
 
 		long numerator = 1; // n * (n-1) * ... * (n-k+1)
-		for (int i = 0; i < B; i++) {
-			numerator = (numerator * (A - i)) % C;
-		}
+        for (int i=0; i<B; i++) {
+            numerator = (numerator * (A-i) ) % C;
+        }
 
-		long denominator = 1; // B!
-		for (int i = 1; i <= B; i++) {
-			denominator = (denominator * i) % C;
-		}
+        long denominator = 1; // B!
+        for (int i=1; i<=B; i++) {
+            denominator = (denominator * i) % C;
+        }
 
-		return (int) ((numerator * modInverse(denominator, C)) % C);
+        return (int) (( numerator* modInverse(denominator,C) ) % C);
 	}
-
+	
+	
 	long modInverse(long a, long p) {
-		return solveForPower(a, p - 2, p);
+        return pow(a, p-2, p);
+    }
+	
+
+
+	long pow(long a, long b, long MOD)
+	{
+	    long x=1,y=a; 
+	    while(b > 0)
+	    {
+	        if(b%2 == 1)
+	        {
+	            x=(x*y);
+	            if(x>MOD) x%=MOD;
+	        }
+	        y = (y*y);
+	        if(y>MOD) y%=MOD; 
+	        b /= 2;
+	    }
+	    return x;
+	}
+	
+	
+	public static void main(String[] args) {
+
+		ComputenCrModP2 computenCrModP = new ComputenCrModP2();
+		int result = computenCrModP.solve(6,2,13);
+		System.out.println(result);
+
 	}
 
-	public int solveForPower(long A, long power, long mod) {
-		long ans = 1;
-		long a = A;
-		while (power > 0) {
-			if (power % 2 == 0) {
-				a = (a % mod * a % mod) % mod;
-				power = power / 2;
-			} else {
-				ans = (ans % mod * a % mod) % mod;
-				a = (a % mod * a % mod) % mod;
-				power = (power - 1) / 2;
-			}
-		}
-		return (int) (ans % mod);
-	}
 }

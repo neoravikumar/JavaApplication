@@ -1,6 +1,7 @@
 package com.intermediate.hashing;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -74,44 +75,52 @@ Explanation 2:
  */
 public class Anagrams {
 
-	public ArrayList<ArrayList<String>> anagrams(final List<String> A) {
+	public ArrayList<ArrayList<Integer>> anagrams(final List<String> A) {
+        HashMap<String,ArrayList<Integer>> anagramMap = new HashMap<>();
+        int i=0;
+        for(String a : A){
+            String key = getSortedString(a);
+            if(!anagramMap.containsKey(key)){
+                ArrayList<Integer> first = new ArrayList<>();
+                first.add(++i);
+                anagramMap.put(key,first);
+                continue;
+            }
+            anagramMap.get(key).add(++i);
+        }
 
-		ArrayList<ArrayList<String>> result = new ArrayList<ArrayList<String>>();
+        return new ArrayList<>(anagramMap.values());
+    }
 
-		Map<String, List<String>> groups = new HashMap<String, List<String>>();
-		for (int i = 0; i < A.size(); i++) {
-			String str = A.get(i);
-			String key = buildAnagramsKey(str);
+    String getSortedString(String value){
+        HashMap<Character,Integer> freqMap = new HashMap<>();
+        for(char c : value.toCharArray()){
+            if(!freqMap.containsKey(c)){
+                freqMap.put(c,1);
+                continue;
+            }
+            freqMap.put(c,freqMap.get(c)+1);
+        }
+        StringBuilder sb = new StringBuilder();
+        for(int i='a';i<='z';i++){
+            if(!freqMap.containsKey((char)i)){
+                continue;
+            }
+            for(int j =0;j<freqMap.get((char)i);j++){
+                sb.append((char)i);
+            }
+        }
 
-			if (!groups.containsKey(key)) {
-				groups.put(key, new ArrayList<String>());
-			}
-			groups.get(key).add(str);
-		}
-
-		for (Map.Entry<String, List<String>> pair : groups.entrySet()) {
-			result.add(pair.getValue());
-		}
-
-		return result;
-	}
-
-	public String buildAnagramsKey(String str) {
-		int[] map = new int[26];
-
-		for (Character c : str.toCharArray()) {
-			map[c - 'a'] += 1;
-		}
-		StringBuilder build = new StringBuilder();
-		for (int i = 0; i < 26; i++) {
-			build.append(map[i]);
-			build.append((char) (i + 'a'));
-		}
-		return build.toString();
-	}
+        return sb.toString();
+    }
 
 	public static void main(String[] args) {
 
+		Anagrams anagrams = new Anagrams();
+		//ArrayList<ArrayList<String>> result = anagrams.anagrams(Arrays.asList("cat", "dog", "god", "tca"));
+		ArrayList<ArrayList<Integer>> result = anagrams.anagrams(Arrays.asList("rat", "tar", "art"));
+		result.stream().forEach(a -> System.out.println(a));
+		
 	}
 
 }

@@ -1,5 +1,12 @@
 package com.intermediate.hashing;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+import java.util.stream.Collectors;
+
 //Colorful Number
 /*
  Problem Description
@@ -76,10 +83,35 @@ Explanation 2:
 public class ColorfulNumber {
 	
 	 public int colorful(int A) {
-	    }
+			/*
+			 * List<Integer> digitList = new ArrayList<>(); while(A>0) {
+			 * digitList.add(A%10); A /=10; } Collections.reverse(digitList);
+			 * 
+			 * Set<Integer> uniqueSet = new HashSet<>(); int product; for(int
+			 * i=0;i<digitList.size();i++) { product = 1; for(int
+			 * j=i;i<digitList.size();j++) { product *= digitList.get(j);
+			 * if(uniqueSet.contains(product)) { return 0; } uniqueSet.add(product); } }
+			 * return 1;
+			 */
+		  Set<Integer> set = new HashSet<>();
+		    String s = String.valueOf(A);
+		    for (int i = 0; i < s.length(); i++) {
+		      int prod = 1;
+		      for (int j = i; j < s.length(); j++) {
+		        prod *= Character.getNumericValue(s.charAt(j));
+		        if (set.contains(prod)) {
+		          return 0;
+		        }
+		        set.add(prod);
+		      }
+		    }
+		    return 1;
+	 }
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
+		ColorfulNumber colorfulNumber = new ColorfulNumber();
+		int result = colorfulNumber.colorful(236);
+		System.out.println(result);
 
 	}
 

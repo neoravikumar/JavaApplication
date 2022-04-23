@@ -1,7 +1,6 @@
 package com.intermediate.arithmetic;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 
 /*
  * 
@@ -57,59 +56,49 @@ Explanation 2:
  Between [1, 12] there are 3 lucky number: 6, 10 and 12.
  */
 public class LuckyNumbers {
+	
+	// Function to check whether a number is a PerfectSquare or not
+		private boolean isPerfectSquare(double x) {
+			double sr = Math.sqrt(x);
+			return ((sr - Math.floor(sr)) == 0);
+		}
+		 
+		// Function to check if a number is a product of exactly two distinct primes
+		private boolean isProduct(int num)
+		{
+			int cnt = 0;
+			if(num == 6) {
+				System.out.println(num);
+			}
+			for (int i = 2; cnt < 2 && i * i <= num; ++i) {
+				while (num % i == 0) {
+					num /= i;
+					cnt += 1;
+				}
+			}
+			if (num > 1)
+				++cnt;
+
+			if (cnt == 2)
+				return true;
+			return false;
+		}
 
 	public int solve(int A) {
 
-		// Vector to store such numbers
 	    ArrayList<Integer> inputArray = new ArrayList<Integer>();
 	 
 	    for (int i = 1; i <= A; i++) {
+	    	System.out.println(i);
 	        if (isProduct(i) && !isPerfectSquare(i)) {
-	 
-	            // insert in the vector
+	        	System.out.println("When i is:>>"+i);
 	            inputArray.add(i);
 	        }
 	    }
-	 
-	    
-	 // Print all numbers till n from the vector
-	    Iterator<Integer> itr = inputArray.iterator(); 
-	            while(itr.hasNext()){ 
-	                 System.out.print(itr.next()+" "); 
-	            } 
-	    
 	    return inputArray.size(); 
-
 	}
 	
-	// Function to check whether a number
-	// is a PerfectSquare or not
-	private boolean isPerfectSquare(double x)
-	{
-	 
-	    double sr = Math.sqrt(x);
-	 
-	    return ((sr - Math.floor(sr)) == 0);
-	}
-	 
-	// Function to check if a number is a
-	// product of exactly two distinct primes
-	private boolean isProduct(int num)
-	{
-	    int cnt = 0;
-	 
-	    for (int i = 2; cnt < 2 && i * i <= num; ++i) {
-	        while (num % i == 0) {
-	            num /= i;
-	            ++cnt;
-	        }
-	    }
-	 
-	    if (num > 1)
-	        ++cnt;
-	 
-	    return cnt >= 2;
-	}
+	
 
 	public static void main(String[] args) {
 		LuckyNumbers luckyNumbers = new LuckyNumbers();

@@ -90,8 +90,8 @@ public class MaximumAbsoluteDifference {
 			}
 			
 		}
-		System.out.println("xMax:xMIn:"+xMax+":"+xMin);
-		System.out.println("yMax:yMIn:"+yMax+":"+yMin);
+		//System.out.println("xMax:xMIn:"+xMax+":"+xMin);
+		//System.out.println("yMax:yMIn:"+yMax+":"+yMin);
 		return Math.max(Math.abs(xMax - xMin), Math.abs(yMax - yMin));
 	}
 
