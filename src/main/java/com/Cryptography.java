@@ -7,7 +7,6 @@ import javax.crypto.spec.SecretKeySpec;
 
 import org.springframework.security.crypto.codec.Base64;
 
-import com.sun.xml.internal.messaging.saaj.packaging.mime.util.BASE64EncoderStream;
 
 //import java.util.Base64;
 
@@ -75,15 +74,16 @@ public class Cryptography {
 
 	public String encryptPassword(String in) {
 		String result = "";
-		try {
+		/*try {
 			  this.cipher.init(1, this.key); 
 			  byte[] utf8 = in.getBytes("UTF8");
 			  byte[] enc = this.cipher.doFinal(utf8);
-			  enc = BASE64EncoderStream.encode(enc);
+			  //enc = BASE64EncoderStream.encode(enc);
+			enc = "BASE64EncoderStream.encode(enc)";
 			  result =  new String(enc);
 		} catch (Exception e) {
 			System.out.println(e);
-		}
+		}*/
 		return result;
 	}
 

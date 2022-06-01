@@ -2,7 +2,6 @@ package com.intermediate.streams;
 
 import java.util.Arrays;
 import java.util.List;
-import java.util.stream.Collectors;
 
 public class FindAverageOfAllOddNumber {
 	
@@ -12,7 +11,8 @@ public class FindAverageOfAllOddNumber {
 		
 		double result = input.stream().filter(a -> a % 2 != 0).mapToInt(e -> e).average().getAsDouble();
 		
-		double intersectElements = input.stream().filter(a -> a % 2 != 0).mapToInt(e -> )
+		double intersectElements =
+				input.stream().filter(a -> a % 2 != 0).mapToInt(e -> e).average().getAsDouble();
 		
 		/*
 		 * List<Integer> listOne = Arrays.asList(1,2,3,4); List<Integer> listTwo =

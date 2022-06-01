@@ -1,9 +1,8 @@
 package com.intermediate.binaryTree;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import com.intermediate.tree.TreeNode;
+
+import java.util.List;
 
 public class SortedArrayToBalancedBST {
 	
@@ -25,12 +24,12 @@ public class SortedArrayToBalancedBST {
 
 	public static void main(String[] args) {
 		
-		SortedArrayToBalancedBST tree = new SortedArrayToBalancedBST();
+		/*SortedArrayToBalancedBST tree = new SortedArrayToBalancedBST();
 	        int arr[] = new int[]{1, 2, 3, 4, 5, 6, 7};
 	        int n = arr.length;
-	        root = tree.sortedArrayToBST(arr, 0, n - 1);
+	        root = tree.sortedArrayToBST(arr);
 	        System.out.println("Preorder traversal of constructed BST");
-	        tree.preOrder(root);
+	        tree.preOrder(root);*/
 
 	}
 

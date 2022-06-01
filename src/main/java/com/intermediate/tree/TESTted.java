@@ -1,5 +1,7 @@
 package com.intermediate.tree;
 
+import java.util.*;
+
 public class TESTted {
 	
 	/**
@@ -27,51 +29,7 @@ public class TESTted {
 	 * }
 	13
 	 */
-	14
 	public class Solution {
-	15
-	/*
-	16
-	    static void getVerticalOrder(TreeNode root, TreeMap<Integer,ArrayList<Integer>> map,int hd)
-	17
-	    {
-	18
-	        if(root==null)
-	19
-	            return;
-	20
-	        
-	21
-	        ArrayList list = map.get(hd);
-	22
-	        if(list==null)
-	23
-	        {
-	24
-	            list =  new ArrayList<Integer>();
-	25
-	            list.add(root.val);
-	26
-	        }
-	27
-	        else
-	28
-	        {
-	29
-	            list.add(root.val);
-	30
-	        }
-	31
-	        map.put(hd,list);
-	32
-	        getVerticalOrder(root.left,map,hd-1);
-	33
-	        getVerticalOrder(root.right,map,hd+1);
-	34
-	    }
-	35
-	    */
-	36
 	    class Pair
 	    {
 	        int hd;
@@ -83,7 +41,8 @@ public class TESTted {
 	        }
 	    }
 	    public int[][] verticalOrderTraversal(TreeNode A) {
-	        TreeMap<Integer,ArrayList<Integer>>map = new TreeMap<Integer,ArrayList<Integer>>();
+	        //TreeMap<Integer,ArrayList<Integer>>map = new TreeMap<Integer,ArrayList<Integer>>();
+			TreeMap<Integer, ArrayList<Integer>> map = new TreeMap<Integer, ArrayList<Integer>>();
 	        int hd=0;
 	        Queue<Pair> q = new LinkedList<Pair>();
 	        Pair temp = new Pair(hd,A);

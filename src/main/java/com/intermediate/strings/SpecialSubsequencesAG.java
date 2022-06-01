@@ -1,9 +1,5 @@
 package com.intermediate.strings;
 
-import java.util.ArrayList;
-
-import sun.util.calendar.Gregorian;
-
 /**
  * Special Subsequences "AG" Problem Description
  * 
