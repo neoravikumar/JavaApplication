@@ -1,4 +1,4 @@
-import java.util.Properties;
+package com.practice;
 
 public class Test22 {
 	

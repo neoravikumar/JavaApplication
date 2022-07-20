@@ -1,11 +1,6 @@
 package com.intermediate.basic;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.Deque;
-import java.util.HashSet;
-import java.util.LinkedList;
-import java.util.Set;
+import java.util.*;
 
 /*Simplify Directory Path
 Given a string A representing an absolute path for a file (Unix-style).

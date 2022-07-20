@@ -1,7 +1,5 @@
 package com.intermediate.arithmetic;
 
-import java.util.Arrays;
-
 /*Finding Position
 Problem Description
 

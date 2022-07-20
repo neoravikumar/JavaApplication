@@ -1,14 +1,13 @@
 package com.intermediate.searching;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collections;
 
 /**
 Minimum Difference
 Problem Description
 
-You are given a 2-D matrix C of size A × B.
+You are given a 2-D matrix C of size A ï¿½ B.
 You need to build a new 1-D array of size A by taking one element from each row of the 2-D matrix in such a way that the cost of the newly build array is minimized.
 
 Cost of an array is the minimum possible value of the absolute difference between any two adjacent elements of the array.

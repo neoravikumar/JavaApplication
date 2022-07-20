@@ -1,8 +1,6 @@
 package com.intermediate.arrays;
 
-import java.math.BigInteger;
 import java.util.ArrayList;
-import java.util.Arrays;
 
 /*
  Beggars Outside Temple

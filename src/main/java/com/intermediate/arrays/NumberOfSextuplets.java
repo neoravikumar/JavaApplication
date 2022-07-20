@@ -1,9 +1,6 @@
 package com.intermediate.arrays;
 
-import java.util.ArrayList;
 import java.util.Arrays;
-
-import com.intermediate.twoPointers.AnotherCountRectangles;
 
 /*
  Number of sextuplets

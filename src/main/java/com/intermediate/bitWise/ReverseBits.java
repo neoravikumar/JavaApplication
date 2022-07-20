@@ -1,7 +1,5 @@
 package com.intermediate.bitWise;
 
-import java.math.BigInteger;
-
 /*
  Reverse Bits
 Problem Description

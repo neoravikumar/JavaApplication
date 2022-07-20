@@ -1,12 +1,6 @@
 package com.intermediate.stack;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Map.Entry;
-import java.util.Stack;
-import java.util.TreeMap;
+import java.util.*;
 
 /*
  Maximum Frequency stack

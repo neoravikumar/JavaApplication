@@ -2,7 +2,6 @@ package com.intermediate.twoPointers;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collections;
 
 /*
  Minimize the absolute difference

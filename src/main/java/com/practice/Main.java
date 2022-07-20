@@ -1,7 +1,7 @@
+package com.practice;
+
 import java.util.ArrayList;
 import java.util.Arrays;
-
-import com.intermediate.twoPointers.ClosestPairFromSortedArrays;
 
 class Main {
 	// Function to find the closest pair to `target` in given sorted arrays

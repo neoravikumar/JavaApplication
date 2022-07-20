@@ -1,3 +1,5 @@
+package com.practice;
+
 public class TestYourJson {
 
 	public static void main(String[] args) {

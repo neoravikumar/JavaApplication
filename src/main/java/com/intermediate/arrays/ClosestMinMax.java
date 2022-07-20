@@ -3,8 +3,6 @@ package com.intermediate.arrays;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-import javax.xml.bind.annotation.adapters.CollapsedStringAdapter;
-
 /*
  Closest MinMax
 Problem Description

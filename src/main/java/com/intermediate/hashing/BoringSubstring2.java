@@ -1,7 +1,5 @@
 package com.intermediate.hashing;
 
-import java.util.Arrays;
-
 /**
  Boring substring
 Problem Description

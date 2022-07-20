@@ -1,7 +1,5 @@
 package com.intermediate.linkedList;
 
-import com.intermediate.linkedList.SinglyLinkedList.Node;
-
 public class LinkedListNew {
 	
 	static class Node {

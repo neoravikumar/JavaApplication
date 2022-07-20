@@ -1,24 +1,26 @@
+package com.practice;
+
 import java.util.ArrayList;
 
-public class PrintPattern2 {
+public class PrintPattern {
 
 	public ArrayList<ArrayList<Integer>> solve(int A) {
 
 		ArrayList<ArrayList<Integer>> result = new ArrayList<ArrayList<Integer>>();
-        for(int i=1;i<=A;i++){
-            ArrayList<Integer> ri = new ArrayList<Integer>();
-            for(int j=A;j>=1;j--){
-                if(j>i){
-                  
-                    ri.add(0);
-                }else{
-                      ri.add(j);
-                }
-            }
-            result.add(ri);
-        }
-        display(result);
-        return result;
+		for (int i = 1; i <= A; i++) {
+			ArrayList<Integer> ri = new ArrayList<Integer>();
+			for (int j = 1; j <= A; j++) {
+				if (j <= i) {
+
+					ri.add(0);
+				} else {
+					ri.add(j);
+				}
+			}
+			result.add(ri);
+		}
+		display(result);
+		return result;
 	}
 
 	private void display(ArrayList<ArrayList<Integer>> a) {
@@ -31,7 +33,7 @@ public class PrintPattern2 {
 
 	public static void main(String[] args) {
 
-		PrintPattern2 pt = new PrintPattern2();
+		PrintPattern pt = new PrintPattern();
 		ArrayList<ArrayList<Integer>> result = pt.solve(3);
 		//System.out.println(result);
 

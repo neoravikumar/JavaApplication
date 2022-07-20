@@ -5,8 +5,6 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
-import com.intermediate.problemSolving.EquilibriumIndexArray;
-
 /**
  * Sort the Unsorted Array Problem Description
  * 

@@ -1,7 +1,6 @@
 package com.intermediate.arrays;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 /*Elements which have at-least two greater elements

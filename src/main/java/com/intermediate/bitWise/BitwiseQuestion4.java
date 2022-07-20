@@ -1,7 +1,5 @@
 package com.intermediate.bitWise;
 
-import java.math.BigInteger;
-
 /*Count Total Set Bits
 Problem Description
 

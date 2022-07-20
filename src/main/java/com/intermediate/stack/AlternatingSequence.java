@@ -1,7 +1,6 @@
 package com.intermediate.stack;
 
 import java.util.Stack;
-import java.util.concurrent.CountDownLatch;
 
 /**
 Alternating sequence

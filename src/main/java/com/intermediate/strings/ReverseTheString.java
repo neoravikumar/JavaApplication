@@ -1,7 +1,5 @@
 package com.intermediate.strings;
 
-import java.util.ArrayList;
-
 /**
  * Reverse the String as below 
  * "ab123cd output will be dc123ba" 

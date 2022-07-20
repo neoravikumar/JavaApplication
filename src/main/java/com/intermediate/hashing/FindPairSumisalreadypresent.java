@@ -1,12 +1,6 @@
 package com.intermediate.hashing;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
-
-import com.intermediate.arrays.SmallerAndGreater2;
+import java.util.*;
 
 /*Find pairs in array whose sum is already present
 Given an array A of N distinct and positive elements, the task is to find number of unordered pairs whose sum already exists in given array.

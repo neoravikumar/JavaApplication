@@ -1,10 +1,6 @@
 package com.intermediate.hashing;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.LinkedHashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 /*K Occurrences
 Groot has N trees lined up in front of him where the height of the i'th tree is denoted by H[i].

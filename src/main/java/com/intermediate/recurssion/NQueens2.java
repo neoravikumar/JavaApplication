@@ -1,13 +1,12 @@
 package com.intermediate.recurssion;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 
 /*
  NQueens
 Problem Description
 
-The n-queens puzzle is the problem of placing n queens on an n×n chessboard such that no two queens attack each other.
+The n-queens puzzle is the problem of placing n queens on an nï¿½n chessboard such that no two queens attack each other.
 
 
 

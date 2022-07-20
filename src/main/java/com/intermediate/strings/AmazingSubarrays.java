@@ -1,8 +1,5 @@
 package com.intermediate.strings;
 
-import java.util.ArrayList;
-import java.util.List;
-
 /*
  Amazing Subarrays
 You are given a string S, and you have to find all the amazing substrings of S.

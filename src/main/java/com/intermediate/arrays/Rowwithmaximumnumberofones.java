@@ -2,9 +2,6 @@ package com.intermediate.arrays;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
-
-import com.intermediate.problemSolving.XorQueries2;
 
 /**
  * Row with maximum number of ones Problem Description

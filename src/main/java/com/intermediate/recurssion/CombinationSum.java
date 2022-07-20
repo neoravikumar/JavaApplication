@@ -1,10 +1,6 @@
 package com.intermediate.recurssion;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.*;
 
 /*
  Combination Sum
@@ -18,7 +14,7 @@ Note:
 
 1) All numbers (including target) will be positive integers.
 
-2) Elements in a combination (a1, a2, … , ak) must be in non-descending order. (ie, a1 <= a2 <= … <= ak).
+2) Elements in a combination (a1, a2, ï¿½ , ak) must be in non-descending order. (ie, a1 <= a2 <= ï¿½ <= ak).
 
 3) The combinations themselves must be sorted in ascending order.
 

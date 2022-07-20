@@ -1,7 +1,9 @@
-import java.util.ArrayList;
-import java.util.Arrays;
+package com.practice;
 
 import com.intermediate.arrays.AntiDiagonals;
+
+import java.util.ArrayList;
+import java.util.Arrays;
 
 public class MultidimensionArraySample {
 

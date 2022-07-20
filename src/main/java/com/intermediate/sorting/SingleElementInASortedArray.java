@@ -1,7 +1,5 @@
 package com.intermediate.sorting;
 
-import java.util.ArrayList;
-
 /*
  Single Element in a Sorted Array
 Problem Description
